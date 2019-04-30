@@ -1,0 +1,19 @@
+<view class='imgsBoxWrap'>
+    <block wx:if="{{imgArr.length > 0}}" wx:for="{{imgArr}}" wx:key="{{item}}" wx:for-item="item">
+        <view class='imgBox' data-index="{{index}}" bindtap='changeImg'>
+            <block wx:if="{{item}}">
+                <image src='{{item}}'></image>
+                <image class='close' src="./assets/uploadImg_close.png" data-index="{{index}}" catchtap='closeSelectedImg'></image>
+            </block>
+            <block wx:if="{{!item}}">
+                <image src='../../images/add.png' bindtap='addImg'></image>
+            </block>
+        </view>
+
+    </block>
+    <block wx:if="{{!isClose}}">
+        <view class='imgBox'>
+            <image src='../../images/add.png' bindtap='addImg'></image>
+        </view>
+    </block>
+</view>
