@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "授权登录",
+  "navigationBarBackgroundColor": "#fff",
+  "usingComponents": {
+    "Authorization": "/components/authorization/authorization"
+  }
+}

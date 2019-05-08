@@ -1,0 +1,16 @@
+<view class="page">
+    <view class="page__hd">
+        <view class="page__title">UploadImg</view>
+        <view class="page__desc">上传图片组件</view>
+    </view>
+    <view class="page__bd">
+        <view class='groups'>
+            <view class='introduce'>
+                上传图片示例
+            </view>
+            <view>
+                <uploadImg data-name="files" count='2' bind:getNetUrl="getUrl"></uploadImg>
+            </view>
+        </view>
+    </view>
+</view>

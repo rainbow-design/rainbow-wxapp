@@ -1,0 +1,16 @@
+<view class="page">
+    <view class="page__hd">
+        <view class="page__title">Carousel</view>
+        <view class="page__desc">轮播图组件</view>
+    </view>
+    <view class="page__bd">
+        <view class='groups'>
+         <view class='introduce'>
+                轮播图示例
+            </view>
+            <view class='Carousel'>
+            <Carousel swiperHeight="260rpx" imgUrleKey="img_url" bannerList="{{bannerList}}" dotWidthAndHeight="12rpx" dotTop="-20rpx"></Carousel>
+        </view>
+        </view>
+    </view>
+</view>

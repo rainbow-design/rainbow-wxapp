@@ -1,3 +1,25 @@
 .authorization {
+}
+/* reset button属性 */
 
+button {
+  width: 100%;
+  background-color: transparent;
+  position: relative;
+  display: block;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: inherit;
+  text-align: center;
+  text-decoration: none;
+  line-height: 2.55555556;
+  border: none;
+  outline: none;
+  color: #fff;
+}
+
+.button-hover {
+  color: #fff;
+  background-color: transparent;
 }
