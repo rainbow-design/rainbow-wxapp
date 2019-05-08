@@ -1,0 +1,7 @@
+/* components/loading/loading.wxss */
+.loadingMask {
+  width: 750rpx;
+  height: 100vh;
+  background: #f0f0f0;
+  z-index: 100000;
+}

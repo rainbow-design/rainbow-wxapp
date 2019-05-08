@@ -1,10 +1,13 @@
 var uploadDomain = "https://upload.cc/",
   imageUpload = uploadDomain + "image_upload",
   wxLogin = "",
-  wxRegister = "";
+  wxRegister = "",
+  githubResp = "https://api.github.com/search/";
 
 module.exports = {
   uploadDomain,
   imageUpload,
-  wxRegister
+  wxLogin,
+  wxRegister,
+  githubResp
 };

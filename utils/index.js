@@ -1,4 +1,4 @@
-function promiseRequest(url, data = {}) {
+function promiseRequest(url, data = {}, type) {
   return new Promise(function(resolve, reject) {
     data.access_token === undefined
       ? (data.access_token = wx.getStorageSync("token"))
@@ -9,7 +9,7 @@ function promiseRequest(url, data = {}) {
     wx.request({
       url: url,
       data: data,
-      method: "POST",
+      method: type || "POST",
       header: {
         "Content-Type": "application/x-www-form-urlencoded"
       },

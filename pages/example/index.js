@@ -18,6 +18,12 @@ Page({
         name: "授权登录",
         open: false,
         pages: ["authorization"]
+      },
+      {
+        id: "loading",
+        name: "加载中",
+        open: false,
+        pages: ["loading"]
       }
     ]
   },

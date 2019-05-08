@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "加载中",
+  "navigationBarBackgroundColor": "#fff",
+  "usingComponents": {
+    "Loading": "/components/loading/loading"
+  }
+}

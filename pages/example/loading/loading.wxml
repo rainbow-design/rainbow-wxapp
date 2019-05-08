@@ -1,0 +1,19 @@
+<Loading loaded="{{loaded}}"></Loading>
+<view class='githubRepos' style='height:100%'>
+  <view style="font-size:32rpx;font-weight:700;">Most Popular JavaScript Projects in Github</view>
+  <view style="color:red;" wx:if="{{error}}">
+    Error: {{error}}
+    <view></view>
+  </view>
+  <view wx:if="{{!error}}" wx:for="{{repos}}" wx:key="{{repo.id}}" wx:for-item="repo">
+    <view>
+      <view class='oneLineStart'>
+        <view> {{index + 1 }}.
+          <text style="color:blue">{{repo.name}}</text>
+        </view>
+        <view> ({{repo.stargazers_count}} stars) </view>
+      </view>
+      <view style="font-size:24rpx;">{{repo.description}}</view>
+    </view>
+  </view>
+</view>
