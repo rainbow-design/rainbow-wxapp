@@ -1,4 +1,4 @@
-import util from "../../utils/index";
+import RainBow from "../../lib/rainbow";
 import API from "../../api/index";
 const app = getApp();
 Component({
@@ -29,29 +29,27 @@ Component({
       wx.login({
         success(res) {
           if (res.code) {
-            util
-              .promiseRequest(API.wxLogin, {
-                wxcode: res.code
-              })
-              .then(response => {
-                var data = response.data.data;
-                console.log(data);
-                if (data && data.openid && data.id) {
-                  //已登录 true
-                  // 直接存储数据
-                  app.globalData.userData = data;
-                  app.globalData.openid = data.openid;
-                  that.triggerEvent("pubToFather", data);
-                  // wx.Storage.setItem("token", data.access_token);
-                  console.log("app.globalData-----------------------");
-                  console.dir(app.globalData);
-                  // that.delayToIndex();
-                } else {
-                  app.globalData.openid = data.openid;
-                  // 需要去注册
-                  that.register();
-                }
-              });
+            RainBow.fetch(API.wxLogin, {
+              wxcode: res.code
+            }).then(response => {
+              var data = response.data.data;
+              console.log(data);
+              if (data && data.openid && data.id) {
+                //已登录 true
+                // 直接存储数据
+                app.globalData.userData = data;
+                app.globalData.openid = data.openid;
+                that.triggerEvent("pubToFather", data);
+                // wx.Storage.setItem("token", data.access_token);
+                console.log("app.globalData-----------------------");
+                console.dir(app.globalData);
+                // that.delayToIndex();
+              } else {
+                app.globalData.openid = data.openid;
+                // 需要去注册
+                that.register();
+              }
+            });
           }
         }
       });
@@ -66,7 +64,7 @@ Component({
           avatar: userInfo.avatarUrl,
           sex: userInfo.gender
         };
-        util.promiseRequest(API.wxRegister, paramObj).then(res => {
+        RainBow.fetch(API.wxRegister, paramObj).then(res => {
           // console.log("注册后获得的数据----------")
           var data = res.data.data;
           that.triggerEvent("pubToFather", data);

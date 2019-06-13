@@ -1,4 +1,4 @@
-import utils from "../../../utils/index";
+import RainBow from "../../../lib/rainbow";
 import API from "../../../api/index";
 Page({
   /**
@@ -11,12 +11,11 @@ Page({
   },
   onLoad: function(options) {
     let that = this;
-    utils
-      .promiseRequest(
-        API.githubResp + "repositories?q=javascript&sort=stars",
-        {},
-        "GET"
-      )
+    RainBow.fetch(
+      API.githubResp + "repositories?q=javascript&sort=stars",
+      {},
+      "GET"
+    )
       .then(res => {
         that.setData({
           repos: res.data.items,
