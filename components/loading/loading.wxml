@@ -1,4 +1,4 @@
-<!--components/loading/loading.wxml-->
+<!-- components/loading/loading.wxml -->
 <block wx:if="{{!loaded}}">
-<view class="loadingMask"></view>
+  <view class="loadingMask"></view>
 </block>

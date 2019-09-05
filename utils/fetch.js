@@ -1,17 +1,17 @@
 function fetch(url, params = {}, type) {
   return new Promise(function(resolve, reject) {
     params.access_token === undefined
-      ? (params.access_token = wx.getStorageSync("token"))
-      : "";
+      ? (params.access_token = wx.getStorageSync('token'))
+      : '';
     if (!url) {
-      throw new Error("请输入有效的接口请求路径");
+      throw new Error('请输入有效的接口请求路径');
     }
     wx.request({
       url: url,
       data: params,
-      method: type || "POST",
+      method: type || 'POST',
       header: {
-        "Content-Type": "application/x-www-form-urlencoded"
+        'Content-Type': 'application/x-www-form-urlencoded'
       },
       success: res => {
         if (res.statusCode == 200) {
@@ -28,20 +28,10 @@ function fetch(url, params = {}, type) {
       },
       fail: err => {
         reject(err);
-        console.log("failed");
+        console.log('failed');
       }
     });
   });
 }
-// function toast(content, callback) {
-//   wx.showToast({
-//     title: content,
-//     icon: "none",
-//     success: callback || function() {}
-//   });
-// }
 
-export default {
-  fetch
-  // toast
-};
+export default fetch;

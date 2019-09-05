@@ -1,0 +1,99 @@
+var DateFr = {
+  getDate: function(time, splitStr) {
+    if (!time) return '';
+    time = time * 1000;
+    var date = getDate(time);
+    var M = date.getMonth() + 1;
+    var y = date.getFullYear();
+    var d = date.getDate();
+    var h = date.getHours();
+    var F = date.getMinutes();
+    var s = date.getSeconds();
+
+    if (M < 10) M = '0' + M;
+    if (d < 10) d = '0' + d;
+    if (h < 10) h = '0' + h;
+    if (F < 10) F = '0' + F;
+    if (s < 10) s = '0' + s;
+
+    if (splitStr) return y + splitStr + M + splitStr + d + ' ' + h + ':' + F;
+    else
+      return {
+        y: y,
+        M: M,
+        d: d
+      };
+  },
+
+  changeArr: function(str) {
+    if (!str) {
+      return [];
+    }
+
+    var newArr = str.split(',');
+    var tempArr = [];
+
+    if (newArr.length > 6) {
+      tempArr = newArr.splice(0, 6);
+    } else {
+      tempArr = newArr;
+    }
+    // console.log('tempArrtempArrtempArr', tempArr)
+    return tempArr;
+  },
+
+  /**
+   * 价格取小数点后两位
+   * @param str
+   */
+  priceFloat: function(str) {
+    var str1 = str / 100;
+    var value = Math.round(parseFloat(str1) * 100) / 100;
+    var s = value.toString().split('.');
+    if (s.length == 1) {
+      value = value.toString() + '.00';
+      return value;
+    }
+    if (s.length > 1) {
+      if (s[1].length < 2) {
+        value = value.toString() + '0';
+      }
+      return value;
+    }
+  },
+
+  /**
+   * 传入字符串输出数组
+   */
+  transformArr: function(str) {
+    var arr = str.split(',');
+    // console.log('str', arr);
+    return arr;
+  }
+};
+
+function parsePrice(str, num) {
+  // 四舍五入 格式化数字
+  // toFix(8440.55,1) => 8440.6
+  var num = num || 2;
+  var times = Math.pow(10, num);
+  var roundNum = Math.round(str * times) / times;
+  return roundNum.toFixed(num);
+}
+
+function parseDistance(str) {
+  // 四舍五入 格式化数字
+  // toFix(8440.55,1) => 8440.6
+  var times = Math.pow(10, 2);
+  var roundNum = Math.round((str / 1000) * times) / times;
+  return roundNum.toFixed(1);
+}
+
+module.exports = {
+  getDate: DateFr.getDate,
+  changeArr: DateFr.changeArr,
+  priceFloat: DateFr.priceFloat,
+  transformArr: DateFr.transformArr,
+  parsePrice: parsePrice,
+  parseDistance: parseDistance
+};

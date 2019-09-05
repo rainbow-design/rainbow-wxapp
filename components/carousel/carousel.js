@@ -23,7 +23,7 @@ Component({
     indicatorDots: false // 自定义轮播按钮
   },
   created() {
-    console.log("created");
+    console.log('created');
   },
 
   /**
@@ -32,7 +32,7 @@ Component({
   methods: {
     swiperChange: function(e) {
       var source = e.detail.source;
-      if (source === "autoplay" || source === "touch") {
+      if (source === 'autoplay' || source === 'touch') {
         this.setData({
           swiperCurrentIndex: e.detail.current
         });

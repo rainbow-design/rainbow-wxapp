@@ -1,0 +1,25 @@
+卷 工作空间 的文件夹 PATH 列表
+卷序列号为 BC03-46F9
+F:.
+├─api
+├─assets
+│  └─tabBar
+├─components
+│  ├─authorization
+│  ├─carousel
+│  ├─loading
+│  ├─uploadImg
+│  │  └─assets
+│  └─wxParse
+├─filter
+├─libs
+├─mock
+├─pages
+│  ├─example
+│  │  ├─authorization
+│  │  ├─carousel
+│  │  ├─loading
+│  │  └─uploadImg
+│  └─others
+├─styles
+└─utils

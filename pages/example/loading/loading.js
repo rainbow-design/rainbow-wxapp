@@ -1,5 +1,5 @@
-import RainBow from "../../../lib/rainbow";
-import API from "../../../api/index";
+import fetch from '../../../utils/fetch';
+import API from '../../../api/index';
 Page({
   /**
    * 页面的初始数据
@@ -11,11 +11,7 @@ Page({
   },
   onLoad: function(options) {
     let that = this;
-    RainBow.fetch(
-      API.githubResp + "repositories?q=javascript&sort=stars",
-      {},
-      "GET"
-    )
+    fetch(API.githubResp + 'repositories?q=javascript&sort=stars', {}, 'GET')
       .then(res => {
         that.setData({
           repos: res.data.items,

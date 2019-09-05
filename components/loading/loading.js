@@ -1,4 +1,3 @@
-// components/loading/loading.js
 Component({
   /**
    * 组件的属性列表
@@ -21,8 +20,8 @@ Component({
   created() {
     if (!this.data.loaded) {
       wx.showToast({
-        title: "加载中",
-        icon: "loading",
+        title: '加载中',
+        icon: 'loading',
         mask: true,
         duration: 5000
       });

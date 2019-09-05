@@ -1,11 +1,11 @@
 const app = getApp();
-import RainBow from "../../../lib/rainbow";
+import { toast } from '../../../utils/util';
 Page({
   /**
    * 页面的初始数据
    */
   data: {
-    maskClassName: "columnCenter",
+    maskClassName: 'columnCenter',
     needShouQuan: true
   },
   onLoad: function(options) {},
@@ -13,13 +13,13 @@ Page({
     var data = e.detail;
     var that = this;
     app.globalData.openid = data.openid;
-    wx.Storage.setItem("openId", data.openid);
+    wx.Storage.setItem('openId', data.openid);
     app.globalData.avatar = data.avatar;
     app.globalData.username = data.username;
-    RainBow.toast("已授权成功！", function() {
+    toast('已授权成功！', function() {
       setTimeout(function() {
         wx.switchTab({
-          url: "../index/index"
+          url: '../index/index'
         });
       }, 700);
     });

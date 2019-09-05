@@ -1,5 +1,5 @@
-import RainBow from "../../lib/rainbow";
-import API from "../../api/index";
+import fetch from '../../utils/fetch';
+import API from '../../api/index';
 const app = getApp();
 Component({
   /**
@@ -29,7 +29,7 @@ Component({
       wx.login({
         success(res) {
           if (res.code) {
-            RainBow.fetch(API.wxLogin, {
+            fetch(API.wxLogin, {
               wxcode: res.code
             }).then(response => {
               var data = response.data.data;
@@ -39,9 +39,9 @@ Component({
                 // 直接存储数据
                 app.globalData.userData = data;
                 app.globalData.openid = data.openid;
-                that.triggerEvent("pubToFather", data);
+                that.triggerEvent('pubToFather', data);
                 // wx.Storage.setItem("token", data.access_token);
-                console.log("app.globalData-----------------------");
+                console.log('app.globalData-----------------------');
                 console.dir(app.globalData);
                 // that.delayToIndex();
               } else {
@@ -64,10 +64,10 @@ Component({
           avatar: userInfo.avatarUrl,
           sex: userInfo.gender
         };
-        RainBow.fetch(API.wxRegister, paramObj).then(res => {
+        fetch(API.wxRegister, paramObj).then(res => {
           // console.log("注册后获得的数据----------")
           var data = res.data.data;
-          that.triggerEvent("pubToFather", data);
+          that.triggerEvent('pubToFather', data);
         });
       }
     }
